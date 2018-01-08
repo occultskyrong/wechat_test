@@ -13,11 +13,16 @@ const alert = require('./alert.js');
 const request = (option) => new Promise((resolve, reject) => {
     const uri = 'uri' in option ? option.uri : alert.error('未获取到请求地址');
     const loading = 'loading' in option ? option.loading : true; // 默认为true
-    if (loading) {
+    if (loading) { // 调用加载中效果
         alert.loading();
     }
     wx.request({
         url: uri,
+        success:(json)=>{
+            if(json&&'statusCode'){
+
+            }
+        }
     });
 });
 
